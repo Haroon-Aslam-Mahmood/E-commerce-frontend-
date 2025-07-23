@@ -78,7 +78,7 @@ const ProductPage = () => {
       });
       fetchProductsByCategory(1, false);
     }
-  }, [category, SERVER_PORT]);
+  }, [category]);
 
   const loadMoreProducts = () => {
     if (pagination.hasNextPage && !loadingMore && fetchProductsRef.current) {
