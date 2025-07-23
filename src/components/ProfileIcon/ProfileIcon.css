@@ -1,0 +1,41 @@
+.profile-icon-container {
+  position: relative;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 6px;
+  transition: background-color 0.2s;
+}
+
+.profile-icon-container:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.profile-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  color: #333;
+}
+
+.user-avatar-small {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.profile-icon svg {
+  transition: color 0.2s;
+}
+
+.profile-icon-container:hover .profile-icon svg {
+  color: #555;
+}
