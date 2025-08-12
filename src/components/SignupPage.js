@@ -118,7 +118,7 @@ const SignupPage = () => {
               value={formData.phoneNo}
               onChange={handleChange}
               className={errors.phoneNo ? "error" : ""}
-              placeholder="Enter your phone number"
+              placeholder="Enter your phone number (+92XXXXXXXXXX)"
             />
             {errors.phoneNo && (
               <span className="error-text">{errors.phoneNo}</span>
