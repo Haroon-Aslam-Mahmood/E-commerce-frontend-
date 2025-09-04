@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useState, useRef } from "react";
 import AddToCartPage from "../Cart/AddToCartPage";
 import ProfileIcon from "../ProfileIcon/ProfileIcon";
+import "./NavBar.css";
 
 function NavBar() {
   const [isCartOpen, setIsCartOpen] = useState(false);
