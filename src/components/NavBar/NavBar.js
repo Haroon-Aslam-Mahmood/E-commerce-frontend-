@@ -2,10 +2,10 @@ import { Link } from "react-router-dom";
 import { useState, useRef } from "react";
 import AddToCartPage from "../Cart/AddToCartPage";
 import ProfileIcon from "../ProfileIcon/ProfileIcon";
-import "./NavBar.css";
 
 function NavBar() {
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [isNavOpen, setIsNavOpen] = useState(false);
   const searchInputRef = useRef(null);
 
   const handleCartClick = (e) => {
@@ -15,6 +15,14 @@ function NavBar() {
 
   const closeCart = () => {
     setIsCartOpen(false);
+  };
+
+  const toggleNav = () => {
+    setIsNavOpen(!isNavOpen);
+  };
+
+  const closeNav = () => {
+    setIsNavOpen(false);
   };
 
   const handleSearchSubmit = (e) => {
@@ -28,38 +36,50 @@ function NavBar() {
     <>
       <div>
         <nav
-          className="navbar navbar-expand-lg"
+          className="navbar navbar-expand-lg navbar-responsive"
           style={{ backgroundColor: "#c1ae3eff" }}
         >
           <div className="container-fluid">
             <button
               className="navbar-toggler"
               type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarSupportedContent"
+              onClick={toggleNav}
               aria-controls="navbarSupportedContent"
-              aria-expanded="false"
+              aria-expanded={isNavOpen}
               aria-label="Toggle navigation"
             >
               <span className="navbar-toggler-icon"></span>
             </button>
             <div
-              className="collapse navbar-collapse"
+              className={`collapse navbar-collapse ${isNavOpen ? "show" : ""}`}
               id="navbarSupportedContent"
             >
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
-                  <Link to="/" className="nav-link active" aria-current="page">
+                  <Link
+                    to="/"
+                    className="nav-link active"
+                    aria-current="page"
+                    onClick={closeNav}
+                  >
                     Home
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link to="/products/suits" className="nav-link active">
+                  <Link
+                    to="/products/suits"
+                    className="nav-link active"
+                    onClick={closeNav}
+                  >
                     Suits
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link to="/products/waistcoat" className="nav-link active">
+                  <Link
+                    to="/products/waistcoat"
+                    className="nav-link active"
+                    onClick={closeNav}
+                  >
                     Waistcoat
                   </Link>
                 </li>
@@ -67,19 +87,24 @@ function NavBar() {
                   <Link
                     to="/products/shalwar-kameez"
                     className="nav-link active"
+                    onClick={closeNav}
                   >
                     Shalwar Kameez
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link to="/products/kurta" className="nav-link active">
+                  <Link
+                    to="/products/kurta"
+                    className="nav-link active"
+                    onClick={closeNav}
+                  >
                     Kurta
                   </Link>
                 </li>
               </ul>
 
               <form
-                className="d-flex me-3"
+                className="d-flex me-3 search-form"
                 role="search"
                 onSubmit={handleSearchSubmit}
               >
@@ -95,11 +120,11 @@ function NavBar() {
                 </button>
               </form>
 
-              <ul className="navbar-nav mb-2 mb-lg-0">
+              <ul className="navbar-nav mb-2 mb-lg-0 nav-actions">
                 <li className="nav-item">
                   <Link
-                    href="#"
-                    className="nav-link active"
+                    to="#"
+                    className="nav-link active cart-link"
                     onClick={handleCartClick}
                   >
                     <img
